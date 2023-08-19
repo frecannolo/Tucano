@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+#change-photo *, #fissa-button *, #btn-mail * {
+  color: #673ab7;
+}
+
+#remove-photo *, #button-cancella * {
+  color: #f44336;
+}
+
+#button-segna-letto * {
+  color: #ffd740;
+}
+
+#remove-photo:hover *, #change-photo:hover *, #button-cancella:hover *,#button-segna-letto:hover *, #fissa-button:hover *, #btn-mail:hover * {
+  color: white;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+.mat-badge-content.mat-badge-active {
+  color: transparent;
+}
+
+#notifications .mdc-button__label {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#notifiche > .mdc-button__label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 1 auto;
+}

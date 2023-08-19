@@ -1,0 +1,66 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  width: calc(100% - 40px);
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#header p {
+  font-size: 17px;
+  color: #673ab7;
+  letter-spacing: 0.08em;
+  margin: auto 0 auto 0;
+  padding-right: 50px;
+}
+
+mat-icon {
+  color: #cccccc;
+}
+
+mat-icon:hover {
+  color: #9b9b9b;
+  cursor: pointer;
+}
+
+#content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+mat-form-field {
+  width: 100px;
+  max-width: 27%;
+}
+
+#footer {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-confirm {
+  background-color: #2ca62c;
+  color: white;
+}
+
+mat-progress-bar {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}

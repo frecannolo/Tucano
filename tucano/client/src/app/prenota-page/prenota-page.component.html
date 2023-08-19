@@ -1,0 +1,43 @@
+<div id="container" *ngIf="pages.divInSearch == 'div-1'">
+  <div id="search">
+    <div id="main_search">
+      <mat-form-field appearance="outline" id="input_search">
+        <mat-label>Cerca una stanza</mat-label>
+        <input #Search matInput (keyup)="changeIcon(Search)" [(ngModel)]="filter">
+        <mat-icon matSuffix id="search-icon" (click)="cancel(Search)">{{iconSearch}}</mat-icon>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <p id="message-search" *ngIf="(rooms | searchRoom:filter).length == 0">Cerca la stanza perfetta per te</p>
+
+  <mat-expansion-panel id="panel-plan">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Consulta le piantine</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div *ngIf="(zones | visRoom:filter).length == 0" id="error">
+      <mat-icon>error</mat-icon>
+      <p id="p-error">Non ci sono stanze per le tue richieste</p>
+    </div>
+
+    <div id="plans">
+      <mat-tab-group>
+        <mat-tab *ngFor="let zone of zones | visRoom:filter" [label]="zone.name">
+          <img class='img-plan' [src]="'/books/getPlan?name=' + zone.name.split(' ').join('_')">
+          <button mat-button class="room" [ngStyle]="btn.css" *ngFor="let btn of zone.rooms" (click)="open(btn.name, zone.name)">{{btn.name}}</button>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </mat-expansion-panel>
+
+  <div id="cards">
+    <mat-card *ngFor="let room of rooms | searchRoom:filter" class="card-with-button">
+      <mat-card-content><strong>{{room.name}}</strong></mat-card-content>
+      <mat-card-content>{{room.zona}}</mat-card-content>
+      <button mat-raised-button color="accent" (click)="open(room.name, room.zona)">Apri</button>
+    </mat-card>
+  </div>
+</div>
+
+<app-books-room *ngIf="pages.divInSearch == 'div-2'" [name]="roomName" [zone]="roomZone"></app-books-room>
